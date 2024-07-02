@@ -1,0 +1,7 @@
+{
+  "name": "brandNewLogin",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

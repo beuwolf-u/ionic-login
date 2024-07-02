@@ -1,0 +1,39 @@
+<ion-content [fullscreen]="true" color="light">
+  <app-entrance-wrapper>
+
+    <form [formGroup]="loginForm">
+      <ion-item color="light">
+        <ion-input (ionBlur)="message=''"
+                   label="USER"
+                   labelPlacement="floating"
+                   color="secondary"
+                   formControlName="username"
+                   required="true" type="text"></ion-input>
+      </ion-item>
+
+      <br/>
+
+      <ion-item color="light">
+        <ion-input (ionBlur)="message=''"
+                   label="PASSWORD"
+                   labelPlacement="floating"
+                   color="secondary"
+                   formControlName="password"
+                   required="true" type="password"></ion-input>
+      </ion-item>
+
+      <br *ngIf="(message || '').length > 0"/>
+      <ion-item class="ion-text-center" *ngIf="(message || '').length > 0" lines="none">
+        <ion-label color="danger"><small>{{ message | uppercase }}</small></ion-label>
+      </ion-item>
+
+      <br/>
+
+      <ion-button (click)="login()" [disabled]="loginForm.invalid"
+                  class="btn" expand="block" color="primary">
+        LOGIN
+      </ion-button>
+
+    </form>
+  </app-entrance-wrapper>
+</ion-content>
